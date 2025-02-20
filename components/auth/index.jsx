@@ -15,7 +15,7 @@ export default function Auth() {
             </div>
             <h1 className='text-6xl font-bold'>Happening now!</h1>
             <div className='w-full md:w-[60%]'>
-                <h2 className='font-bold text-3xl mb-4'>Join today</h2>
+                <h2 className='font-bold text-3xl mb-4'>Join today.</h2>
                 <div className="flex flex-col space-y-2">
                     <Button label={
                         <div className='flex gap-2 items-center justify-center'>
