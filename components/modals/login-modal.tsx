@@ -1,6 +1,6 @@
-import React, { useCallback, useState } from 'react'
-import Modal from '../ui/modal'
-import useLoginModal from '@/hooks/useLoginModal'
+import React, { useCallback, useState } from 'react';
+import Modal from '../ui/modal';
+import useLoginModal from '@/hooks/useLoginModal';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../ui/form';
 import { Input } from '../ui/input';
 import Button from '../ui/button';
@@ -27,8 +27,8 @@ export default function LoginModal() {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-        password: "",
-        email: "",
+      password: "",
+      email: "",
     },
   });
 
@@ -53,40 +53,40 @@ export default function LoginModal() {
 
   const bodyContent = <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 px-12">
-        {error && (
-          <Alert variant="destructive">
-            <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription> {error} </AlertDescription>
-          </Alert>
-        )}
+      {error && (
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription> {error} </AlertDescription>
+        </Alert>
+      )}
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-              <FormItem>
-                  <FormControl>
-                      <Input placeholder="Email" {...field} />
-                  </FormControl>
-                  <FormMessage />
-              </FormItem>
-          )}
-        />
-        <FormField
+      <FormField
         control={form.control}
-        name="password"
+        name="email"
         render={({ field }) => (
-            <FormItem>
-                <FormControl>
-                    <Input placeholder="Password" type="password" {...field} />
-                </FormControl>
-                <FormMessage />
-            </FormItem>
+          <FormItem>
+            <FormControl>
+              <Input placeholder="Email" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
         )}
-        />
+      />
+      <FormField
+      control={form.control}
+      name="password"
+      render={({ field }) => (
+          <FormItem>
+              <FormControl>
+                  <Input placeholder="Password" type="password" {...field} />
+              </FormControl>
+              <FormMessage />
+          </FormItem>
+      )}
+      />
 
-        <Button label='Login' type="submit" secondary fullWidth large disabled={isSubmitting} />
+      <Button label='Login' type="submit" secondary fullWidth large disabled={isSubmitting} />
     </form>
   </Form>
 
